@@ -15,37 +15,35 @@ export default function SentimentAnalysis() {
   const [loading, setLoading] = useState(false);
 
 
+  interface SentimentData {
+    positive: string;
+    neutral: string;
+    negative: string;
+  }
+  
+  const [sentiment, setSentiment] = useState<SentimentData | null>(null);
 
-  const [sentiment, setSentiment] = useState<{
-    positive: number;
-    neutral: number;
-    negative: number;
-  } | null>(null);
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
-
-    try {
-      const response = await fetch("https://marcovrc2000.pythonanywhere.com/sentiment-analysis", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ query, start_date, end_date, limit }),
+  
+    fetch("https://marcovrc2000.pythonanywhere.com/sentiment-analysis", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query, start_date, end_date, limit }),
+    })
+      .then((response) => response.json())
+      .then((data: SentimentData) => {
+        setSentiment(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
       });
-      const data = await response.json();
-    
-
-      setSentiment(data);
-
-      setLoading(false);
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
-    }
   };
-
 
 
   return (
