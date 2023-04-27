@@ -23,10 +23,11 @@ const Home: NextPage = () => {
             <div
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
             >
-              <h3 className="text-xl font-bold">What is this?</h3>
               <div className="text-lg">
               UPDATE: Due to Twitter&apos;s recent decision to remove the ability to search for tweets without paying for their API, this app is no longer functional. I will be looking into other ways to make this app work again. Thanks Elon 😡 ...
               </div>
+              <h3 className="text-xl font-bold">What is this?</h3>
+
               <div className="text-lg">
               If you&apos;re looking for a way to analyze sentiments on Twitter, look no further! SenTweet is here to help.
               </div>
