@@ -25,7 +25,7 @@ const Home: NextPage = () => {
             >
               <h3 className="text-xl font-bold">What is this?</h3>
               <div className="text-lg">
-              UPDATE: Due to Twitter's recent decision to remove the ability to search for tweets without paying for their API, this app is no longer functional. I will be looking into other ways to make this app work. Stay tuned!
+              UPDATE: Due to Twitter&apos;s recent decision to remove the ability to search for tweets without paying for their API, this app is no longer functional. I will be looking into other ways to make this app work again. Thanks Elon 😡 ...
               </div>
               <div className="text-lg">
               If you&apos;re looking for a way to analyze sentiments on Twitter, look no further! SenTweet is here to help.
